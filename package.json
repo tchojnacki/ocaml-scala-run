@@ -1,7 +1,7 @@
 {
 	"name": "ocaml-scala-run",
 	"displayName": "ocaml-scala-run",
-	"description": "Run OCaml and Scala programs in REPL with a single click.",
+	"description": "Run OCaml and Scala scripts in REPL with a single click.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.61.0"
@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:ocaml-scala-run.helloWorld"
+		"onCommand:ocaml-scala-run.runScala",
+		"onCommand:ocaml-scala-run.runOCaml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "ocaml-scala-run.helloWorld",
-				"title": "Hello World"
+				"command": "ocaml-scala-run.runOCaml",
+				"title": "Run in OCaml REPL"
+			},
+			{
+				"command": "ocaml-scala-run.runScala",
+				"title": "Run in Scala REPL"
 			}
 		]
 	},
