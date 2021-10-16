@@ -10,19 +10,16 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:ocaml-scala-run.runScala",
-		"onCommand:ocaml-scala-run.runOCaml"
+		"onCommand:ocaml-scala-run.runInRepl",
+		"onLanguage:ocaml",
+		"onLanguage:scala"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "ocaml-scala-run.runOCaml",
-				"title": "Run in OCaml REPL"
-			},
-			{
-				"command": "ocaml-scala-run.runScala",
-				"title": "Run in Scala REPL"
+				"command": "ocaml-scala-run.runInRepl",
+				"title": "Run in REPL"
 			}
 		]
 	},
