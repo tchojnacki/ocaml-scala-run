@@ -26,5 +26,39 @@ function updateStatusBarItem(languageId: string) {
 }
 
 function runInReplCommand() {
-	vscode.window.showInformationMessage('Hello World from ocaml-scala-run!');
+	const languageId = vscode.window.activeTextEditor?.document.languageId ?? '';
+
+	if (vscode.window.activeTextEditor?.document.isUntitled ?? true) {
+		vscode.window.showErrorMessage('The file must be saved before it can be run in REPL.');
+		return;
+	}
+
+	if (vscode.window.activeTextEditor?.document.isDirty) {
+		vscode.window.showWarningMessage('You are running an outdated version of the file.');
+	}
+
+	if (languageId === 'ocaml') {
+		languageSpecificReplSteps('ocaml', path => `#use "${path}";;`);
+	} else if (languageId === 'scala') {
+		languageSpecificReplSteps('scala', path => `:load ${path}`);
+	} else {
+		vscode.window.showErrorMessage('Can only use on OCaml or Scala files.');
+	}
+}
+
+function languageSpecificReplSteps(commandName: string, fileLoader: (path: string) => string) {
+	let terminal = vscode.window.terminals.find(terminal => terminal.name === commandName) ?? null;
+	if (terminal === null) {
+		terminal = vscode.window.createTerminal(commandName);
+		terminal.sendText(commandName);
+	}
+
+	let filename = vscode.window.activeTextEditor?.document.uri.fsPath ?? '';
+
+	if (vscode.env.remoteName === 'wsl') {
+		filename = filename.replace(/^([a-z]):/, '/mnt/$1');
+	}
+
+	terminal.sendText(fileLoader(filename));
+	terminal.show();
 }
