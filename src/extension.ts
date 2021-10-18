@@ -11,13 +11,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(statusBarItem);
 
-	vscode.workspace.onDidOpenTextDocument(document => updateStatusBarItem(document.languageId));
-	vscode.window.onDidChangeActiveTextEditor(editor => updateStatusBarItem(editor?.document.languageId ?? ''));
+	vscode.workspace.onDidOpenTextDocument(updateStatusBarItem);
+	vscode.window.onDidChangeActiveTextEditor(updateStatusBarItem);
 
-	updateStatusBarItem(vscode.window.activeTextEditor?.document.languageId ?? '');
+	updateStatusBarItem();
 }
 
-function updateStatusBarItem(languageId: string) {
+function updateStatusBarItem() {
+	const languageId = vscode.window.activeTextEditor?.document.languageId ?? '';
+
 	if (languageId === 'ocaml' || languageId === 'scala') {
 		statusBarItem.show();
 	} else {
