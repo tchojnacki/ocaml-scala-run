@@ -1,9 +1,28 @@
 {
 	"name": "ocaml-scala-run",
-	"displayName": "ocaml-scala-run",
+	"displayName": "OCaml & Scala Run in REPL",
 	"description": "Run OCaml and Scala scripts in REPL with a single click.",
 	"publisher": "tchojnacki",
 	"version": "0.0.2",
+	"license": "MIT",
+	"keywords": [
+		"ocaml",
+		"scala",
+		"repl",
+		"run",
+		"eval"
+	],
+	"author": {
+		"name": "Tomasz Chojnacki"
+	},
+	"bugs": {
+		"url": "https://github.com/tchojnacki/ocaml-scala-run/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tchojnacki/ocaml-scala-run.git"
+	},
+	"homepage": "https://github.com/tchojnacki/ocaml-scala-run",
 	"engines": {
 		"vscode": "^1.61.0"
 	},
