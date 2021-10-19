@@ -1,7 +1,7 @@
 # Functionality
 This extension lets you run OCaml (`.ml`) and Scala (`.scala`, `.sc`) files in REPL with a single button.
 
-The evaluate the current file use the "Run in REPL" button located in the left half of the status bar, or use the "Run in REPL" command from the command palette (`Ctrl+Shift+P`). You can also set up a keyboard shortcut, by typing "Run in REPL" into the command palette and clicking the cog on the right of the command.
+To evaluate the current file use the "Run in REPL" button located in the left half of the status bar, or use the "Run in REPL" command from the command palette (`Ctrl+Shift+P`). You can also set up a keyboard shortcut, by typing "Run in REPL" into the command palette and clicking the cog on the right of the command.
 
 Only saved files can be run, and the extension runs the last known saved version of the file.
 
