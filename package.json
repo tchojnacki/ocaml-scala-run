@@ -3,7 +3,7 @@
 	"displayName": "OCaml & Scala Run in REPL",
 	"description": "Run OCaml and Scala scripts in REPL with a single click.",
 	"publisher": "tchojnacki",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"license": "MIT",
 	"keywords": [
 		"ocaml",
